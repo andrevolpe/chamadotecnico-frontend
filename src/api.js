@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://listatarefas-backend.herokuapp.com'
+    baseURL: 'https://chamadotecnico-backend.herokuapp.com'
 });
 
 export default api;
