@@ -17,12 +17,12 @@ import './style.css';
 
 function App() {
 
-    const [ lista, setLista ] = useState([]); // imutabilidade
+    const [ lista, setLista ] = useState([]); 
     const [ open, setOpen ] = useState(false);
-    const [ tarefa, setTarefa ] = useState('');
+    const [ chamado, setChamado ] = useState('');
 
     function loadData() { 
-        api.get('/tarefa').then((response) => { 
+        api.get('/chamado').then((response) => { 
             const itens = response.data;
             setLista(itens);
         });
@@ -32,12 +32,11 @@ function App() {
 
     const openModal = () => setOpen(true);
 
-    // function closeModal() { setOpen(false); }
     const closeModal = () => setOpen(false);
 
      function addTarefa() { 
-         const name = tarefa;
-         api.post('/tarefa', { name: name }).then((response) => {
+         const name = chamado;
+         api.post('/chamado', { name: name }).then((response) => {
             setTarefa('');
             setOpen(false);
             loadData();
@@ -45,13 +44,13 @@ function App() {
      }
 
      function markAsDone(id) { 
-         api.patch(`/tarefa/${id}/done`).then((response) => {
+         api.patch(`/chamado/${id}/done`).then((response) => {
              loadData()
          })
      }
 
-     function deleteTarefa(id) {
-         api.delete(`/tarefa/${id}`).then((response) => { 
+     function deleteChamado(id) {
+         api.delete(`/chamado/${id}`).then((response) => { 
             loadData()
          })
      }
@@ -65,7 +64,7 @@ function App() {
                 {lista.map(item => (
                     <TableRow key={item.id}>
                         <TableCell>{item.id}</TableCell>
-                        <TableCell>{item.name}</TableCell>
+                        <TableCell>{item.chamado}</TableCell>
                         <TableCell>
                             <input type="checkbox" checked={item.done} onChange={() => markAsDone(item.id)}/>
                         </TableCell>
@@ -87,17 +86,17 @@ function App() {
             <DialogTitle id="form-dialog-title">Nova Tarefa</DialogTitle>
             <DialogContent>
                 <DialogContentText>
-                    Digite a tarefa que pretende realizar.
+                    Digite qual problema esta ocorrendo.
                 </DialogContentText>
                 <TextField
                     autoFocus
                     margin="dense"
                     id="name"
-                    label="Tarela"
+                    label="Chamado"
                     type="email"
                     fullWidth
                     value={tarefa}
-                    onChange={e => setTarefa(e.target.value)}
+                    onChange={e => setChamado(e.target.value)}
                 />
             </DialogContent>
             <DialogActions>
