@@ -35,8 +35,8 @@ function App() {
     const closeModal = () => setOpen(false);
 
      function addChamado() { 
-         const name = chamado;
-         api.post('/chamado', { name: name }).then((response) => {
+         const chamado = chamado;
+         api.post('/chamado', { chamado: chamado }).then((response) => {
             setChamado('');
             setOpen(false);
             loadData();
@@ -67,7 +67,7 @@ function App() {
                         <TableCell>{item.chamado}</TableCell>
                         <TableCell>{item.descricao}</TableCell>
                         <TableCell>
-                            <input type="checkbox" checked={item.done} onChange={() => markAsDone(item.id)}/>
+                            <input type="checkbox" checked={item.concluido} onChange={() => markAsDone(item.id)}/>
                         </TableCell>
                         <TableCell>
                             <Button variant="outlined" size="small" color="secondary" onClick={() => deleteChamado(item.id)}>Apagar</Button>
