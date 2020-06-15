@@ -20,6 +20,7 @@ function App() {
     const [ lista, setLista ] = useState([]); 
     const [ open, setOpen ] = useState(false);
     const [ chamado, setChamado ] = useState('');
+    const [ descricao,SetDescricao] = useState('');
 
     function loadData() { 
         api.get('/chamado').then((response) => { 
@@ -44,9 +45,9 @@ function App() {
      //   })
      //}
      function addChamado() { 
-         const name = tarefa;
+         const name = chamado;
          api.post('/chamado', { chamado: name }).then((response) => {
-            setTarefa('');
+            setChamado('');
             setOpen(false);
             loadData();
         })
@@ -101,11 +102,20 @@ function App() {
                     autoFocus
                     margin="dense"
                     id="name"
-                    label="Tarela"
+                    label="Chamado"
                     type="email"
                     fullWidth
-                    value={tarefa}
+                    value={chamado}
                     onChange={e => setChamado(e.target.value)}
+                />
+                <TextField
+                    margin="dense"
+                    id="desc"
+                    label="Descricao"
+                    type="email"
+                    fullWidth
+                    value={descricao}
+                    onChange={e => SetDescricao(e.target.value)}
                 />
 
             </DialogContent>
