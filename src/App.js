@@ -41,6 +41,7 @@ function App() {
          const desc = descricao;
          api.post('/chamado', { chamado: name, descricao: desc, concluido: false }).then((response) => {
             setChamado('');
+            SetDescricao('');
             setOpen(false);
             loadData();
         })
@@ -101,6 +102,7 @@ function App() {
                     Digite qual problema esta ocorrendo.
                 </DialogContentText>
                 <TextField
+                    autoFocus
                     margin="dense"
                     id="name"
                     label="Chamado"
@@ -110,7 +112,6 @@ function App() {
                     onChange={e => setChamado(e.target.value)}
                 />
                 <TextField
-                    autoFocus
                     margin="dense"
                     id="desc"
                     label="Descricao"
