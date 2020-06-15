@@ -65,6 +65,7 @@ function App() {
                     <TableRow key={item.id}>
                         <TableCell>{item.id}</TableCell>
                         <TableCell>{item.chamado}</TableCell>
+                        <TableCell>{item.descricao}</TableCell>
                         <TableCell>
                             <input type="checkbox" checked={item.done} onChange={() => markAsDone(item.id)}/>
                         </TableCell>
