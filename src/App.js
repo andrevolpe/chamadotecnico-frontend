@@ -34,10 +34,10 @@ function App() {
 
     const closeModal = () => setOpen(false);
 
-     function addTarefa() { 
+     function addChamado() { 
          const name = chamado;
          api.post('/chamado', { name: name }).then((response) => {
-            setTarefa('');
+            setChamado('');
             setOpen(false);
             loadData();
         })
@@ -69,7 +69,7 @@ function App() {
                             <input type="checkbox" checked={item.done} onChange={() => markAsDone(item.id)}/>
                         </TableCell>
                         <TableCell>
-                            <Button variant="outlined" size="small" color="secondary" onClick={() => deleteTarefa(item.id)}>Apagar</Button>
+                            <Button variant="outlined" size="small" color="secondary" onClick={() => deleteChamado(item.id)}>Apagar</Button>
                         </TableCell>
                     </TableRow>
                 ))}
@@ -83,7 +83,7 @@ function App() {
             </Button>
         </Container>
         <Dialog open={open} onClose={closeModal} fullWidth={true} maxWidth="sm">
-            <DialogTitle id="form-dialog-title">Nova Tarefa</DialogTitle>
+            <DialogTitle id="form-dialog-title">Novo Chamado</DialogTitle>
             <DialogContent>
                 <DialogContentText>
                     Digite qual problema esta ocorrendo.
@@ -95,7 +95,7 @@ function App() {
                     label="Chamado"
                     type="email"
                     fullWidth
-                    value={tarefa}
+                    value={chamado}
                     onChange={e => setChamado(e.target.value)}
                 />
             </DialogContent>
@@ -103,7 +103,7 @@ function App() {
                 <Button onClick={closeModal} color="primary">
                     Cancelar
                 </Button>
-                <Button onClick={addTarefa} color="primary">
+                <Button onClick={addChamado} color="primary">
                     Salvar
                 </Button>
             </DialogActions>
