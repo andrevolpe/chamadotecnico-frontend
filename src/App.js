@@ -36,7 +36,8 @@ function App() {
 
      function addChamado() { 
          const chamado = chamado;
-         api.post('/chamado', { chamado: chamado }).then((response) => {
+         const descricao = descricao;
+         api.post('/chamado', { chamado: chamado, descricao: descricao }).then((response) => {
             setChamado('');
             setOpen(false);
             loadData();
@@ -97,6 +98,16 @@ function App() {
                     type="email"
                     fullWidth
                     value={chamado}
+                    onChange={e => setChamado(e.target.value)}
+                />
+                <TextField
+                    autoFocus
+                    margin="dense"
+                    id="descricao"
+                    label="descricao"
+                    type="email"
+                    fullWidth
+                    value={descricao}
                     onChange={e => setChamado(e.target.value)}
                 />
             </DialogContent>
