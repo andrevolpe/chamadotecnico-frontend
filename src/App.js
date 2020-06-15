@@ -5,7 +5,8 @@ import {
     Container, 
     Table, 
     TableRow, 
-    TableCell, 
+    TableCell,
+    TableHead, 
     Dialog, 
     Button, 
     DialogTitle, 
@@ -62,6 +63,14 @@ function App() {
         <Header />
         <Container maxWidth="lg" className="container"> 
             <Table>
+                        <TableHead>
+          <TableRow>
+            <TableCell>ID</TableCell>
+            <TableCell align="right">N Chamado</TableCell>
+            <TableCell align="right">Descricacao</TableCell>
+            <TableCell align="right">Concluido</TableCell>
+          </TableRow>
+        </TableHead>
                 {lista.map(item => (
                     <TableRow key={item.id}>
                         <TableCell>{item.id}</TableCell>
