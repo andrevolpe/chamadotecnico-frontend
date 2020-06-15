@@ -66,9 +66,10 @@ function App() {
                         <TableHead>
           <TableRow>
             <TableCell>ID</TableCell>
-            <TableCell align="right">N Chamado</TableCell>
-            <TableCell align="right">Descricacao</TableCell>
-            <TableCell align="right">Concluido</TableCell>
+            <TableCell align="left">N Chamado</TableCell>
+            <TableCell align="left">Descricacao</TableCell>
+            <TableCell align="left">Concluido</TableCell>
+            <TableCell align="left"> </TableCell>
           </TableRow>
         </TableHead>
                 {lista.map(item => (
