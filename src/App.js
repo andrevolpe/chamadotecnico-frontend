@@ -35,18 +35,10 @@ function App() {
 
     const closeModal = () => setOpen(false);
 
-     // function addChamado() { 
-     //    const chamado = nchamado;
-     //    const descricao = desc;
-     //    api.post('/chamado', { chamado: chamado, descricao: descricao }).then((response) => {
-     //       setChamado('');
-     //       setOpen(false);
-     //       loadData();
-     //   })
-     //}
      function addChamado() { 
          const name = chamado;
-         api.post('/chamado', { chamado: name }).then((response) => {
+         const desc = descricao;
+         api.post('/chamado', { chamado: name, descricao: desc, concluido: false }).then((response) => {
             setChamado('');
             setOpen(false);
             loadData();
