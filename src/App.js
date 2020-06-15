@@ -35,9 +35,9 @@ function App() {
     const closeModal = () => setOpen(false);
 
      function addChamado() { 
-         const chamado = chamado;
+         const nchamado = nchamado;
          const descricao = descricao;
-         api.post('/chamado', { chamado: chamado, descricao: descricao }).then((response) => {
+         api.post('/chamado', { chamado: nchamado, descricao: descricao }).then((response) => {
             setChamado('');
             setOpen(false);
             loadData();
@@ -93,15 +93,14 @@ function App() {
                 <TextField
                     autoFocus
                     margin="dense"
-                    id="chamado"
+                    id="nchamado"
                     label="Chamado"
                     type="email"
                     fullWidth
-                    value={chamado}
+                    value={nchamado}
                     onChange={e => setChamado(e.target.value)}
                 />
                 <TextField
-                    autoFocus
                     margin="dense"
                     id="descricao"
                     label="descricao"
