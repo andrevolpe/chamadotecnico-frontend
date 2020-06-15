@@ -34,16 +34,23 @@ function App() {
 
     const closeModal = () => setOpen(false);
 
+     // function addChamado() { 
+     //    const chamado = nchamado;
+     //    const descricao = desc;
+     //    api.post('/chamado', { chamado: chamado, descricao: descricao }).then((response) => {
+     //       setChamado('');
+     //       setOpen(false);
+     //       loadData();
+     //   })
+     //}
      function addChamado() { 
-         const nchamado = nchamado;
-         const descricao = descricao;
-         api.post('/chamado', { chamado: nchamado, descricao: descricao }).then((response) => {
-            setChamado('');
+         const name = tarefa;
+         api.post('/chamado', { chamado: name }).then((response) => {
+            setTarefa('');
             setOpen(false);
             loadData();
         })
      }
-
      function markAsDone(id) { 
          api.patch(`/chamado/${id}/done`).then((response) => {
              loadData()
@@ -93,22 +100,14 @@ function App() {
                 <TextField
                     autoFocus
                     margin="dense"
-                    id="nchamado"
-                    label="Chamado"
+                    id="name"
+                    label="Tarela"
                     type="email"
                     fullWidth
-                    value={nchamado}
+                    value={tarefa}
                     onChange={e => setChamado(e.target.value)}
                 />
-                <TextField
-                    margin="dense"
-                    id="descricao"
-                    label="descricao"
-                    type="email"
-                    fullWidth
-                    value={descricao}
-                    onChange={e => setChamado(e.target.value)}
-                />
+
             </DialogContent>
             <DialogActions>
                 <Button onClick={closeModal} color="primary">
