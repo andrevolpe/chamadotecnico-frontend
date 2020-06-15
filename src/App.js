@@ -66,7 +66,7 @@ function App() {
         <TableHead>
           <TableRow>
             <TableCell>ID</TableCell>
-            <TableCell align="left">N Chamado</TableCell>
+            <TableCell align="left">Titulo</TableCell>
             <TableCell align="left">Descricacao</TableCell>
             <TableCell align="left">Concluido</TableCell>
             <TableCell align="left"> </TableCell>
@@ -105,11 +105,8 @@ function App() {
                     id="name"
                     label="Chamado"
                     type="email"
-                    InputProps={{
-                    readOnly: true,
-                     }}
                     fullWidth
-                    value={"000" + item.map.id}
+                    value={chamado}
                     onChange={e => setChamado(e.target.value)}
                 />
                 <TextField
