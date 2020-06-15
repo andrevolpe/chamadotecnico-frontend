@@ -63,7 +63,7 @@ function App() {
         <Header />
         <Container maxWidth="lg" className="container"> 
             <Table>
-                        <TableHead>
+        <TableHead>
           <TableRow>
             <TableCell>ID</TableCell>
             <TableCell align="left">N Chamado</TableCell>
@@ -101,16 +101,19 @@ function App() {
                     Digite qual problema esta ocorrendo.
                 </DialogContentText>
                 <TextField
-                    autoFocus
                     margin="dense"
                     id="name"
                     label="Chamado"
                     type="email"
+                    InputProps={{
+                    readOnly: true,
+                     }}
                     fullWidth
-                    value={chamado}
+                    value={"000" + item.map.id}
                     onChange={e => setChamado(e.target.value)}
                 />
                 <TextField
+                    autoFocus
                     margin="dense"
                     id="desc"
                     label="Descricao"
